@@ -198,8 +198,10 @@ local function milter_headers(task)
     if order then
       if not add[hname] then
         add[hname] = {
+         [1] = {
           order = order,
           value = lua_util.fold_header(task, hname, value, stop_chars)
+         }
         }
       else
         if not add[hname][1] then
